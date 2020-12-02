@@ -8,6 +8,26 @@ if (loginPage) {
 	};
 }
 
+// Добавить "active"
+const listAddActive = document.querySelectorAll("[data-add-active]");
+const listRemoveActive = document.querySelectorAll("[data-remove-active]");
+
+function activeClassToggle(list, nameData) {
+	if (list) {
+		for (const addActive of list) {
+			addActive.addEventListener("click", () => {
+				const listGetActive = document.querySelectorAll(`[data-get-active="${addActive.getAttribute(nameData)}"]`);
+				for (const getActive of listGetActive) {
+					getActive.classList.toggle("active");
+				}
+			});
+		}
+	}
+}
+
+activeClassToggle(listAddActive, "data-add-active");
+activeClassToggle(listRemoveActive, "data-remove-active");
+
 // Маска для номера телефона
 // https://imask.js.org
 document.querySelectorAll("input[type='tel']").forEach((item) => {

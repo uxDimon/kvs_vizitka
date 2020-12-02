@@ -282,7 +282,7 @@ main {
 }
 
 .nav-bot {
-	height: 50px;
+	height: 60px;
 	background-color: $color-w;
 	display: grid;
 	grid-auto-flow: column;
@@ -290,7 +290,7 @@ main {
 	align-items: center;
 	justify-items: center;
 	position: relative;
-	z-index: 12;
+	z-index: 13;
 }
 
 .nav-bot__item {
@@ -320,17 +320,31 @@ main {
 
 .change-ing {
 	position: absolute;
+	overflow: hidden;
 	bottom: 100%;
 	left: 0;
 	right: 0;
-	height: 200px;
-	padding: 30px 16px 0;
+	max-height: 0;
+	padding: 30px 16px;
 	z-index: 12;
 	background-color: $color-w;
 	border-radius: 50px 50px 0px 0px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	transition: $anim-login;
+	transition-property: opacity, visibility, transform, max-height;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(100%);
+}
+
+.change-ing.active {
+	max-height: 1000px;
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
 }
 
 .change-ing__text {
@@ -370,13 +384,16 @@ main {
 .close-area {
 	position: fixed;
 	top: 0;
-	right: auto;
-	bottom: auto;
+	right: 0;
+	bottom: 0;
 	left: 0;
-	width: 0;
-	height: 0;
 	background-color: rgba(0, 0, 0, 0.7);
 	z-index: 10;
+
+	visibility: hidden;
+	opacity: 0;
+	transition: $anim-login;
+	transition-property: opacity, visibility;
 }
 
 .close-area.active {
@@ -384,8 +401,8 @@ main {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	width: auto;
-	height: auto;
+	visibility: visible;
+	opacity: 1;
 }
 
 // @media screen and (max-width: 768px) {
