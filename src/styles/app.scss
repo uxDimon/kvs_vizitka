@@ -3,8 +3,20 @@
 }
 
 // Размеры
-$content-max-weight: 1240px;
+$content-max-weight: 720px;
+
+// Цвет
+$color-main: #f4691b;
+$color-main-w: #ffc7a7;
+$color-text: #232930;
+$color-warning: #f41b1b;
+$color-w: #ffffff;
+
+// Шрифт
 $font-main: "SF Pro Display", sans-serif;
+
+// Анимация
+$anim-login: 300ms ease-out 0ms;
 
 @import "./common/fonts.scss";
 
@@ -13,21 +25,139 @@ $font-main: "SF Pro Display", sans-serif;
 	outline-offset: 4px;
 }
 
-body {
-	font-family: $font-main;
+html {
+	width: 100%;
+	height: 100%;
+	min-height: auto;
 }
 
-@import "./common/header.scss";
-@import "./pages/index.scss";
-@import "./common/footer.scss";
+body {
+	font-family: $font-main;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 1.4;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	min-height: auto;
+}
 
-// @media screen and (max-width: 1274px) {
+main {
+	display: grid;
+	grid-template-columns: minmax(auto, 460px);
+	grid-template-rows: 1fr;
+	align-items: center;
+	justify-items: center;
+	justify-content: center;
+	height: 100%;
+}
 
-// }
+.content {
+	position: relative;
+	width: 100%;
+	padding: 16px 32px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
-// @media screen and (max-width: 960px) {
+// Страница авторизации
+.login-page {
+	background-color: $color-main;
+	transition: background-color $anim-login;
+}
 
-// }
+.login-page__logo {
+	position: absolute;
+
+	top: 50%;
+	transform: translateY(-50%);
+	transition: $anim-login;
+	transition-property: transform, top;
+}
+
+.login {
+	display: grid;
+	grid-gap: 8px;
+	width: 100%;
+	max-width: 250px;
+	margin-top: 224px;
+	margin-bottom: 10%;
+
+	visibility: hidden;
+	opacity: 0;
+	transition: $anim-login;
+	transition-property: opacity, visibility;
+}
+
+.login__text {
+	margin-bottom: 12px;
+	text-align: center;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.login__input {
+	margin: 0;
+	padding: 0 20px;
+	height: 40px;
+	background: $color-w;
+	border: 1px solid $color-main-w;
+	border-radius: 5px;
+	font-family: $font-main;
+	font-weight: normal;
+	font-size: 15px;
+	color: $color-main;
+	letter-spacing: 0.0703846px;
+	appearance: none;
+
+	&:focus {
+		border-color: $color-main;
+	}
+
+	&::placeholder {
+		color: $color-main-w;
+	}
+}
+
+.login__input.error {
+	border-color: $color-warning;
+}
+
+.button {
+	font-family: $font-main;
+	font-weight: 600;
+	font-size: 15px;
+	text-align: center;
+	letter-spacing: 0.0703846px;
+	color: $color-w;
+	background-color: $color-main;
+	height: 40px;
+	margin: 0;
+	padding: 0 20px;
+	border: none;
+	border-radius: 5px;
+
+	&:active {
+		background-color: lighten($color-main, 5%);
+	}
+}
+
+.login-page.active {
+	background-color: $color-w;
+
+	.login-page__logo {
+		top: 16px;
+		transform: translateY(0);
+	}
+
+	.login {
+		visibility: visible;
+		opacity: 1;
+	}
+}
 
 // @media screen and (max-width: 768px) {
 
