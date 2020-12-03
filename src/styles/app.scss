@@ -1,7 +1,3 @@
-:root {
-	--content-p-r: 0;
-}
-
 // Размеры
 $content-max-weight: 720px;
 
@@ -218,6 +214,7 @@ main {
 	border-radius: 80px;
 	overflow: hidden;
 	margin-bottom: 8px;
+	cursor: pointer;
 }
 
 .content__img {
@@ -375,6 +372,7 @@ main {
 	margin: 0;
 	padding: 0;
 	border: none;
+	cursor: pointer;
 }
 
 .change-ing__linc {

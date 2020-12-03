@@ -1,0 +1,21 @@
+extends ../template
+
+block variables
+    - var title = 'карта'
+
+block content
+    main.soter
+        .content
+            .content__header
+                h1.content__header-h карта
+            
+            .list__wrap
+                ul.list-small
+                    li.list-small__item
+                        a(href="index.html").list-small__linc Авторизация
+                    li.list-small__item
+                        a(href="vizitka.html").list-small__linc Визитка
+                    li.list-small__item
+                        a(href="sotr.html").list-small__linc Сотрудники
+                    li.list-small__item
+                        a(href="sotr_p.html").list-small__linc Главный отдел
