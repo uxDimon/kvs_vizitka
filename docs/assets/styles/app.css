@@ -44,7 +44,6 @@ main {
   display: grid;
   grid-template-columns: minmax(auto, 460px);
   grid-template-rows: 1fr;
-  grid-row-gap: 10px;
   align-items: center;
   justify-items: center;
   justify-content: center;
@@ -53,7 +52,7 @@ main {
 .content {
   position: relative;
   width: 100%;
-  padding: 16px 16px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: center; }
@@ -355,7 +354,7 @@ main {
 
 .content__search {
   width: 100%;
-  margin-bottom: 40px; }
+  margin-bottom: 20px; }
 
 .content__search-input {
   position: relative;
@@ -402,9 +401,9 @@ main {
 
 .list-small,
 .list-norm {
-  overflow-y: scroll;
+  overflow-y: auto;
   margin: 0;
-  padding: 0;
+  padding: 20px 0 0 0;
   list-style: none;
   position: absolute;
   top: 0;
